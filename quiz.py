@@ -103,7 +103,7 @@ while True:
         for i, option in enumerate(questions[current_question]["options"]):
             button_rect = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, BUTTON_Y_START + i * (BUTTON_HEIGHT + BUTTON_SPACING)), (BUTTON_WIDTH, BUTTON_HEIGHT))
             pygame.draw.rect(screen, BLUE, button_rect)
-            option_text = FONT.render(option, True, WHITE)
+            option_text = FONT.render(option, True, BLACK)
             screen.blit(option_text, (button_rect.x + BUTTON_WIDTH // 2 - option_text.get_width() // 2, button_rect.y + BUTTON_HEIGHT // 2 - option_text.get_height() // 2))
 
     pygame.display.flip()
