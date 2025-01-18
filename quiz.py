@@ -30,47 +30,39 @@ questions = [
     {"question": "What is Djo’s real name, the singer of 'End of Beginning'?","options":["Finn Wolfhard","David Harbour","Daniel Radcliff","Joe Keery"],"answer":3}
 ]
 
-# Shuffle questions and options
+# Shuffle questions
 random.shuffle(questions)
-for question in questions:
-    options = question["options"]
-    question["answer"] = options.index(options[question["answer"]])
-    random.shuffle(options)
 
 # Game variables
 score = 0
 current_question = 0
 game_over = False
 
-# Button dimensions
+# Button dimensions for answer options
 BUTTON_WIDTH = 400
 BUTTON_HEIGHT = 50
 BUTTON_Y_START = 150
 BUTTON_SPACING = 20
 
 # Main game loop
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+while True: #infinite loop till the game ends
+    for event in pygame.event.get(): #retrieves all events 
+        if event.type == pygame.QUIT: #if window close
             pygame.quit()
             sys.exit()
 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Left mouse button
-            mouse_x, mouse_y = event.pos
-            if game_over:
+            mouse_x, mouse_y = event.pos #current position of mouse
+            if game_over: #if the game is over, restart button is created
                 restart_button_rect = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, HEIGHT // 2 + 40), (BUTTON_WIDTH, BUTTON_HEIGHT))
-                if restart_button_rect.collidepoint(mouse_x, mouse_y):
+                if restart_button_rect.collidepoint(mouse_x, mouse_y): #if clicked
                     pygame.time.delay(600) 
                     score = 0
                     current_question = 0
                     game_over = False
                     random.shuffle(questions)
-                    for question in questions:
-                        options = question["options"]
-                        question["answer"] = options.index(options[question["answer"]])
-                        random.shuffle(options)
             else:
-                for i in range(4):
+                for i in range(4): #checks each of 4 answer buttons if not game over
                     button_rect = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, BUTTON_Y_START + i * (BUTTON_HEIGHT + BUTTON_SPACING)), (BUTTON_WIDTH, BUTTON_HEIGHT))
                     if button_rect.collidepoint(mouse_x, mouse_y):
                         if i == questions[current_question]["answer"]:
