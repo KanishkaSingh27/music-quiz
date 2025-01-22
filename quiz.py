@@ -70,7 +70,7 @@ while True: #infinite loop till the game ends
                     random.shuffle(questions)
             else:
                 for i in range(4): #checks each of 4 answer buttons if not game over
-                    button_rect = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, BUTTON_Y_START + i * (BUTTON_HEIGHT + BUTTON_SPACING)),
+                    button_rect = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, BUTTON_Y_START + i * (BUTTON_HEIGHT + BUTTON_SPACING)),               
                                                (BUTTON_WIDTH, BUTTON_HEIGHT))
                     if button_rect.collidepoint(mouse_x, mouse_y):
                         if i == questions[current_question]["answer"]:
@@ -109,7 +109,7 @@ while True: #infinite loop till the game ends
                                        (BUTTON_WIDTH, BUTTON_HEIGHT))
             pygame.draw.rect(screen, BLUE, button_rect)
             option_text = FONT.render(option, True, BLACK)
-            screen.blit(option_text, (button_rect.x + BUTTON_WIDTH // 2 - option_text.get_width() // 2, button_rect.y + BUTTON_HEIGHT 
+            screen.blit(option_text, (button_rect.x + BUTTON_WIDTH // 2 - option_text.get_width() // 2, button_rect.y + BUTTON_HEIGHT                           
                                       // 2 - option_text.get_height() // 2))
 
     pygame.display.flip() #updates display
@@ -120,4 +120,3 @@ while True: #infinite loop till the game ends
 
 
 
-    
