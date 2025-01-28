@@ -111,7 +111,7 @@ while True:
                     random.shuffle(questions)
 
             else:
-                for i in range(4):
+                for i in range(4): #option buttons
                     button_rect = pygame.Rect((WIDTH // 2 - BUTTON_WIDTH // 2, BUTTON_Y_START + i * (BUTTON_HEIGHT + BUTTON_SPACING)),
                                                (BUTTON_WIDTH, BUTTON_HEIGHT))
                     if button_rect.collidepoint(mouse_x, mouse_y):
@@ -124,7 +124,7 @@ while True:
                         pygame.display.flip()
                         pygame.time.delay(500)
 
-                        if feedback_color == GREEEN:
+                        if feedback_color == GREEEN: #correct
                             score += 1
                         current_question += 1
                         if current_question >= len(questions):
