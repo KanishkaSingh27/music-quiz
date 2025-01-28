@@ -124,7 +124,7 @@ while True:
                         pygame.display.flip()
                         pygame.time.delay(500)
 
-                        if feedback_color == GREEN:
+                        if feedback_color == GREEEN:
                             score += 1
                         current_question += 1
                         if current_question >= len(questions):
